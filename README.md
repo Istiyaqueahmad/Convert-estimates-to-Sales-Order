@@ -1,16 +1,22 @@
 # Convert-estimates-to-Sales-Order
 
 // Zoho provided script to convert Estimate into Sales Order
+
 estimateID = estimate.get("estimate_id");
+
 estimatedate = estimate.get("date").toDate();
+
 organizationID = organization.get("organization_id");
+
 customerID = estimate.get("customer_id");
+
 estimateDetails = invokeurl
 [
 	url :"https://books.zoho.com/api/v3/estimates/" + estimateID + "?organization_id=" + organizationID
 	type :GET
 	connection:"zohobooks"
 ];
+
 estimateDetails = estimateDetails.get("estimate");
 dis = estimateDetails.get("is_discount_before_tax");
 info estimateDetails;
